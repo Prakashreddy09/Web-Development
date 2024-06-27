@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+
+    <a href="{% url 'base:create_space' %}">Create Space</a>
+
+    <div>
+        {% for space in spaces %}
+            <div>
+                <span>@{{space.host.username}}</span>
+                <h1>{{space.id}}. <a href="{% url 'base:space' space.id%}">{{space.name}}</a></h1>
+                <small>{{space.topic.name}}</small>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+    
+
+{% endblock %}
